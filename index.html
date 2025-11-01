@@ -1,0 +1,27 @@
+b.onclick = ()=> selectAnswer(i,b);
+    optionsEl.appendChild(b);
+  });
+  // progress
+  const p = Math.round(((idx)/QUESTIONS.length)*100);
+  progressBar.style.width = p + '%';
+  startTimer();
+  nextBtn.style.display = 'none';
+  restartBtn.style.display = 'none';
+  endScreen.style.display = 'none';
+}
+
+function calcLevel(i){
+  if(i < 40) return 'Easy';
+  if(i < 80) return 'Medium';
+  return 'Hard';
+}
+
+function selectAnswer(i,btn){
+  disableOptions();
+  clearInterval(timerId);
+  const correct = QUESTIONS[idx].a;
+  if(i === correct){
+    score++;
+    btn.style.outline = '3px solid #16a34a';
+  } else {
+    btn.style.outline = '3px solid #ef4
